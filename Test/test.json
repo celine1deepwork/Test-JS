@@ -1,0 +1,306 @@
+GET {{bookURL}}?limit=2&value=fiction
+limit = 2
+type = fiction
+Response : 
+[
+    {
+        "id": 1,
+        "name": "The Russian",
+        "type": "fiction",
+        "available": true
+    },
+    {
+        "id": 2,
+        "name": "Just as I Am",
+        "type": "non-fiction",
+        "available": false
+    }
+]
+
+* GET {{bookURL}}/:idbook
+
+idBook = 3 
+Response :
+{
+    "id": 3,
+    "name": "The Vanishing Half",
+    "author": "Brit Bennett",
+    "type": "fiction",
+    "price": 16.2,
+    "current-stock": 987,
+    "available": true
+}
+
+* GET {{baseURL}}/status
+Request: 
+pm.test("Status code 200",function(){
+
+    pm.response.to.have.status(200);
+}
+
+)
+const response = pm.response.json();
+console.log(response.status);
+pm.test("Status should be Ok", function(){ //In here instead of function you may use ' ()=> '
+    pm.expect(1).to.equal(2);
+    pm.expect(response.status).to.equal("Ok Special");
+})
+Response: 
+{
+    "status": "OK"
+}
+*POST {{baseURL}}//api-clients/
+//helps you to change the current api's value as you wish
+Response : //We don't expect it to give an result to us but if you'd try again to reigster this kind of user again it'll gave you this kind of message
+{
+    "error": "API client already registered. Try a different email."
+}
+
+*POST {{baseURL}}/orders // Generates random names for posting into the current API
+Request: 
+{
+    "bookId" : 1,
+    "customerName" : "{{$randomFullName}}"
+}
+Response : 
+{
+    "created": true,
+    "orderId": "V8g5cG6tnwihG9ZfEy_0s"
+}
+* GET {{baseURL}}/orders // after the last changes made it 'll give you this kind of information on the lib
+[
+    {
+        "id": "bAb731klON9c4SKkBzCEI",
+        "bookId": 1,
+        "customerName": "John",
+        "createdBy": "9241f022c8d610160a71791422a0910fd539988c638b6a68340110d26059162f",
+        "quantity": 1,
+        "timestamp": 1677156794226
+    },
+    {
+        "id": "N6btOu1MvhDCiw-EAPUbA",
+        "bookId": 1,
+        "customerName": "Kent Lindgren",
+        "createdBy": "9241f022c8d610160a71791422a0910fd539988c638b6a68340110d26059162f",
+        "quantity": 1,
+        "timestamp": 1677157464278
+    },
+    {
+        "id": "0PMmtn38bdP2JXede6qKK",
+        "bookId": 1,
+        "customerName": "Josefina Metz DVM",
+        "createdBy": "9241f022c8d610160a71791422a0910fd539988c638b6a68340110d26059162f",
+        "quantity": 1,
+        "timestamp": 1677157467255
+    },
+    {
+        "id": "DGdVRFYSK5SQ3RyHGPO4q",
+        "bookId": 1,
+        "customerName": "Iris Kozey",
+        "createdBy": "9241f022c8d610160a71791422a0910fd539988c638b6a68340110d26059162f",
+        "quantity": 1,
+        "timestamp": 1677157470050
+    },
+    {
+        "id": "TbpCY2JQS6bPuB32hL910",
+        "bookId": 1,
+        "customerName": "Bryant O'Hara",
+        "createdBy": "9241f022c8d610160a71791422a0910fd539988c638b6a68340110d26059162f",
+        "quantity": 1,
+        "timestamp": 1677157472979
+    },
+    {
+        "id": "bxzpIRyU3nruyt2nq1xM7",
+        "bookId": 1,
+        "customerName": "Shaun Crona",
+        "createdBy": "9241f022c8d610160a71791422a0910fd539988c638b6a68340110d26059162f",
+        "quantity": 1,
+        "timestamp": 1677157473869
+    },
+    {
+        "id": "czwflHDzhdsy8z8vmT97h",
+        "bookId": 1,
+        "customerName": "Fredrick Lueilwitz",
+        "createdBy": "9241f022c8d610160a71791422a0910fd539988c638b6a68340110d26059162f",
+        "quantity": 1,
+        "timestamp": 1677157474934
+    },
+    {
+        "id": "xcu5FJuy5PJJt21H786d-",
+        "bookId": 1,
+        "customerName": "Ms. Ron Koch",
+        "createdBy": "9241f022c8d610160a71791422a0910fd539988c638b6a68340110d26059162f",
+        "quantity": 1,
+        "timestamp": 1677157484733
+    },
+    {
+        "id": "l0fzLwDA1ybRoPptzeRM2",
+        "bookId": 1,
+        "customerName": "Travis Cole",
+        "createdBy": "9241f022c8d610160a71791422a0910fd539988c638b6a68340110d26059162f",
+        "quantity": 1,
+        "timestamp": 1677157485631
+    },
+    {
+        "id": "I8VzV9fS58MKCDofBupas",
+        "bookId": 1,
+        "customerName": "Alberta Abernathy",
+        "createdBy": "9241f022c8d610160a71791422a0910fd539988c638b6a68340110d26059162f",
+        "quantity": 1,
+        "timestamp": 1677157486488
+    },
+    {
+        "id": "8HiNO1EMcxA8WjDhKiXhX",
+        "bookId": 1,
+        "customerName": "Kellie Kessler",
+        "createdBy": "9241f022c8d610160a71791422a0910fd539988c638b6a68340110d26059162f",
+        "quantity": 1,
+        "timestamp": 1677157487425
+    },
+    {
+        "id": "V8g5cG6tnwihG9ZfEy_0s",
+        "bookId": 1,
+        "customerName": "Mr. Delia Hudson",
+        "createdBy": "9241f022c8d610160a71791422a0910fd539988c638b6a68340110d26059162f",
+        "quantity": 1,
+        "timestamp": 1677157488434
+    }
+]
+* 
+pm.test("Test status is 200",()=> {
+    pm.response.to.have.status(200);
+    
+});
+
+    // helps us to get the first elem's id from the  list of response.
+// while you're making a test make sure that you're looking for right address on the get box
+// and make sure that other processes are written outside of the test function. otw it fails. Or nevermind // DOESNT matter.
+// ****check the body part and while you're testing use exact parameters that you gave into the data's.
+
+    const response = pm.response.json();
+    console.log(response[0].id);
+
+const book = AvailableBooks[0];
+ 
+// When you'd like to filter the data and print the exact need data to the console ...
+const AvailableBooks = response.filter((book) => book.available == true);
+pm.globals.set("bookId", AvailableBooks[0].id);
+console.log("Available book" + book.id + " Name of the Book is " + AvailableBooks[0].name);
+
+// Now lets write the Tests
+
+
+pm.test("Book Found", ()=>{
+    pm.expect(book).to.be.an('object');
+    pm.expect(book).to.be.true;
+});
+
+//TEST SCRIPTS : 
+
+//get a global variable
+pm.globals.get("variable_key");
+//get a variable
+pm.variables.get("variable_key");
+// get environment variable
+pm.environment.get("variable_key");
+
+//******************************************* */
+
+//set a collection variable
+pm.collectionVariables.get("variable_key");
+//Set a environment variable
+pm.environment.set("variable_key", "variable_value");
+//set a global variable
+pm.globals.set("variable_key", "variable_value");
+//set a collection variable
+pm.collectionVariables.set("variable_key", "variable_value");
+
+//******************************************* */
+
+//Clear an environment Variable
+pm.environment.unset("variable_key");
+//Clear an global variable
+pm.globals.unset("variable_key");
+//Clear a collection Variable
+pm.collectionVariables.unset("variable_key");
+
+//****************************************** */
+
+//send Request
+pm.sendRequest("https://postman-echo.com/get", function (err, response) {
+    console.log(response.json());
+});
+//Status code : Code is 200
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+//******************************************* */
+
+//Response body: Is equal to string
+pm.test("Body matches string", function () {
+    pm.expect(pm.response.text()).to.include("string_you_want_to_search");
+});
+//Response body: JSON value check
+pm.test("Your test name", function () {
+    var jsonData = pm.response.json();
+    pm.expect(jsonData.value).to.eql(100);
+});
+// Response body is equal to string
+pm.test("Body is correct", function () {
+    pm.response.to.have.body("response_body_string");
+});
+//Response headers: Content-Type header check
+pm.test("Content-Type is present", function () {
+    pm.response.to.have.header("Content-Type");
+});
+// Response time is less than 200ms
+pm.test("Response time is less than 200ms", function () {
+    pm.expect(pm.response.responseTime).to.be.below(200);
+});
+//Successful POST Request //oneOf ***
+pm.test("Successful POST request", function () {
+    pm.expect(pm.response.code).to.be.oneOf([201, 202]);
+});
+//Status code : Code name has string 
+pm.test("Status code name has string", function () {
+    pm.response.to.have.status("Created");
+});
+// Response body: Convert XML body to JSON Object //*****//
+var jsonObject = xml2Json(responseBody);
+// Use Tiny Validator for JSON Data
+var schema = {
+  "items": {
+    "type": "boolean"
+  }
+};
+
+var data1 = [true, false];
+var data2 = [true, 123];
+
+pm.test('Schema is valid', function() {
+  pm.expect(tv4.validate(data1, schema)).to.be.true;
+  pm.expect(tv4.validate(data2, schema)).to.be.true;
+});
+
+
+//USING MULTIPLE ASSERTION :
+pm.test("Test All responses may have", ()=>){
+const responseJson = pm.response.json();
+pm.expect(responseJson.name).to.eql("VIP");
+pm.expect(responseJson.type).to.be.a("string");
+pm.expect(responseJson.id).to.have.lengthOf(10);
+});
+//PARSING  CSV
+const parse= require('csv-parse/lib/sync');
+const responseJson = parse(pm.response.text());
+
+//PARSING HTML
+//use cherio
+const exp = cherio.load(pm.response.text());
+console.log(exp.html);
+
+
+
+
+
